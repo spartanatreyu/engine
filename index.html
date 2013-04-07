@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link href="styles.css" rel="stylesheet" />
+</head>
+<body>
+	<canvas id='mainCanvas' width='800' height='600'></canvas>
+	<script src="scripts/main.js"></script>
+	<script>
+		//Create Instance of Engine
+		var game = new Engine('mainCanvas');
+		
+		/*TODO: get the requestAnimationFrame in the engine instead of running it outside*/
+				function loop()
+				{
+					game.draw();
+					nextFrame(loop);
+				}
+
+				nextFrame = window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+				nextFrame(loop);
+	</script>
+</body>
+</html>
